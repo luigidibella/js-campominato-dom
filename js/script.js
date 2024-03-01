@@ -24,11 +24,19 @@ function play(){
     cell.addEventListener('click', function(){
       if (cell.classList.contains('cell-clicked')) return;
 
-      cell.classList.add('cell-clicked');
+      /* cell.classList.add('cell-clicked'); */
 
-      let numElement = this.querySelector('.num');
+      /* let numElement = this.querySelector('.num');
       let num = numElement.textContent;
-      console.log(num);
+      console.log(num); */
+
+      if (bombList.includes(i)) {
+        cell.classList.add('cell-bomb');
+        alert('Hai Perso');
+        location.reload();
+      } else {
+        cell.classList.add('cell-clicked');
+      }
     });
 
     grid.appendChild(cell);
