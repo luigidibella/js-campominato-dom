@@ -5,13 +5,16 @@ const difficultyArray = [100, 81, 49];
 const totalBombs = 16;
 const bombList = [];
 
+let score = 0;
+let maxSquares;
+let win = false;
+
 playButton.addEventListener('click', play);
 
 function play(){
+  const difficulty = parseInt(document.getElementById('difficulty').value);
   
-  const difficulty = document.getElementById('difficulty').value;
-  
-  if(difficulty <= 2) {
+  if(difficulty >= 0 && difficulty <= 2) {
     if(playButton.textContent === 'Play') {
       playButton.textContent = 'Reset';
       playButton.className = 'btn btn-outline-danger';
@@ -21,6 +24,8 @@ function play(){
     createBombs();
     console.log(bombList);
     createGrid();
+  } else {
+    alert("Seleziona una difficoltà valida");
   }
 }
 
@@ -56,10 +61,12 @@ function createGrid() {
       if (bombList.includes(i)){
         cell.classList.add('cell-bomb');
         cell.innerHTML += `<i class="fa-solid fa-land-mine-on" style="color: black;"></i>`;
-        alert('Hai Perso');
         showBombs();
+        printResult();
       } else {
         cell.classList.add('cell-clicked');
+        score++;
+        checkWin();
       }
     });
     grid.appendChild(cell);
@@ -79,9 +86,44 @@ function showBombs() {
   }
 }
 
+// Funzione per controllare se il giocatore ha vinto
+function checkWin() {
+  if (score === (maxSquares - totalBombs)) {
+    win = true;
+    printResult(win);
+  }
+}
+
+// Funzione per stampare il risultato
+function printResult(win = false) {
+  const message = document.createElement('div');
+  message.className = 'game-end';
+
+  if (win) {
+    message.classList.add('win');
+    message.innerHTML = 
+    `
+    Hai Vinto!<br>
+    Il tuo punteggio è:<br>
+    ${score}/${maxSquares - totalBombs}
+    `;
+  } else {
+    message.classList.add('lose');
+    message.innerHTML = 
+    `
+    Hai Perso!<br>
+    Il tuo punteggio è:<br>
+    ${score}/${maxSquares - totalBombs}
+    `;
+  }
+
+  grid.append(message);
+}
 
 // Funzione di reset della griglia
 function reset() {
   grid.innerHTML = '';
   bombList.splice(0);
+  score = 0;
+  win = false;
 }
