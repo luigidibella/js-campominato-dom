@@ -13,12 +13,20 @@
   <!-- Nav -->
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#"></a>
+      <!-- <a class="navbar-brand" href="#"></a> -->
+      <img src="img/Logo.png" alt="">
+      <div class="collapse navbar-collapse d-flex justify-content-between align-items-center" id="navbarSupportedContent">
+        <h1 class="px-2 mb-1">Campo Minato</h1>
 
-      <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarSupportedContent">
-        <img src="img/Logo.png" alt="">
-        <h1>Campo Minato</h1>
-        <button class="btn btn-outline-secondary play" type="submit">Play</button>
+        <div class="d-flex">
+          <select id="difficulty" class="form-select me-3" aria-label="Default select example">
+            <option selected hidden disabled>Difficoltà</option >
+            <option value="0">Easy</option>
+            <option value="1">Medium</option>
+            <option value="2">Hard</option>
+          </select>
+          <button class="btn btn-outline-secondary play" type="submit">Play</button>
+        </div>
       </div>
     </div>
   </nav>
@@ -28,6 +36,7 @@
   <div class="game-container d-flex justify-content-center align-items-center">
     <div class="game-board my-5">
       <div class="grid">
+        <h1>START!</h1>
         <!-- <div class="cell check">
           <div class="num">0</div>
         </div> -->
@@ -37,8 +46,8 @@
   <!-- /Game-Container -->
 
   <!-- Footer -->
-  <footer class="ps-3 py-4 bg-body-tertiary">
-    <span>Made with <i class="fa-solid fa-heart"></i> by <a href="">Boolean</a> </span>
+  <footer class="ps-3 py-4 bg-body-tertiary text-center">
+    <span>Made with <i class="fa-solid fa-heart"></i> by <a href="#">Boolean</a> </span>
   </footer>
   <!-- /Footer -->
 
