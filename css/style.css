@@ -19,6 +19,7 @@ body {
 } */
 
 .grid100 {
+	position: relative;
 	max-height: 480px;
 	max-width: 480px;
 	display: flex;
@@ -27,6 +28,7 @@ body {
 }
 
 .grid81{
+	position: relative;
 	max-height: 432px;
 	max-width: 432px;
 	display: flex;
@@ -35,6 +37,7 @@ body {
 }
 
 .grid49{
+	position: relative;
 	max-height: 336px;
 	max-width: 336px;
 	display: flex;
@@ -77,4 +80,36 @@ body {
 	/* background-color: rgb(241, 117, 78); */
 	background-color: coral;
   border: 5px inset coral;
+}
+
+.game-end {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  /* line-height: 200px; */
+  font-size: 3rem;
+  letter-spacing: 2px;
+  font-weight: bold;   
+}
+
+.game-end.win {
+  background-color: rgba(22, 255, 76, 0.2);
+  color: yellowgreen;
+  text-shadow: 1px 1px black,
+              -1px -1px black,
+               1px -1px black,
+              -1px 1px black;  
+}
+
+.game-end.lose {
+  color: crimson;
+  background-color: rgba(0, 0, 0, 0.2);
+  text-shadow: 1px 1px white,
+              -1px -1px white,
+               1px -1px white,
+              -1px 1px white;   
 }
